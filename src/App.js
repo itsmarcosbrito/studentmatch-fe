@@ -4,6 +4,11 @@ import { Switch, Route } from "react-router-dom";
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import Navbar from "./components/Navbar";
+import AddAsset from "./components/asset/AddAsset";
+import ListAsset from "./components/asset/ListAsset";
+import EditAsset from "./components/asset/EditAsset";
+
+
 
 class App extends Component {
   state = { loggedInUser: null };
@@ -33,6 +38,27 @@ class App extends Component {
             path="/login"
             render={(props) => (
               <Login setTheUser={this.setTheUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/create-asset"
+            render={(props) => (
+              <AddAsset setTheUser={this.setTheUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/list-asset"
+            render={(props) => (
+              <ListAsset setTheUser={this.setTheUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path="/edit-asset"
+            render={(props) => (
+              <EditAsset setTheUser={this.setTheUser} {...props} />
             )}
           />
         </Switch>
